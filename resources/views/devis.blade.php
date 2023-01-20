@@ -14,26 +14,29 @@
            <th scope="col">Statut</th>
            <th scope="col">Date de créaction </th>
            <th scope="col">Durée </th>
+           {{-- <th scope="col">Courtier associé </th> --}}
            <th scope="col">Actions </th>
           
 
          </tr>
        </thead>
        <tbody class="text-light bg-dark table-group-divider">
+          @foreach($devis as $devi)
          <tr>
-           <td>1,001</td>
-           <td>random</td>
-           <td>data</td>
-           <td>placeholder</td>
-           <td>text</td>
-           <td>text</td>
-           <td>text</td>
+           <td>{{$loop->index+1}}</td>
+           <td>{{$devi->nomClient}}</td>
+           <td>{{$devi->montant}}</td>
+           <td>{{$devi->produit}}</td>
+           <td>{{$devi->statutDevis}}</td>
+           <td>{{$devi->dateCreation}}</td>
+           <td>{{$devi->duree}}</td>
+           {{-- <td>{{$devi->courtier->nom}} {{$devi->courtier->prenom}}</td> --}}
            <td>
                <a href="" ><i class="bi-pencil-square" style="font-size: 1.2rem; color: green;"></i></a>
                <a href=""><i class="bi-x-circle-fill" style="font-size: 1.2rem; color: red;"></i></a>
           </td>
          </tr>
-        
+        @endforeach
        </tbody>
      </table>
    </div>

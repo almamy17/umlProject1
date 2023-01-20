@@ -21,6 +21,10 @@ Route::get('/commissions',[PostController::class,'afficherCommissions'])->name('
 Route::get('/promotions',[PostController::class,'afficherPromotions'])->name('promotions');
 Route::get('/activites',[PostController::class,'afficherActivites'])->name('activites');
 Route::get('/login',[PostController::class,'afficherConnexion'])->name('login');
+
 Route::get('/activites/contrat',[PostController::class,'afficherContrat'])->name('contrat');
+Route::get('/activites/contrat/form',[PostController::class,'afficherFormContrat'])->name('contratForm');
+Route::post('/activites/contrat/form',[PostController::class,'storeContrat'])->name('contratForm');
+
 Route::get('/activites/devis',[PostController::class,'afficherDevis'])->name('devis');
 Route::get('/activites/sinistre',[PostController::class,'afficherSinistre'])->name('sinistre');

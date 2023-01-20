@@ -11,7 +11,7 @@
            <th scope="col">Montant</th>
            <th scope="col">Type de produit </th>
            <th scope="col">Date de paiement </th>
-           <th scope="col">Courtier associé </th>
+           {{-- <th scope="col">Courtier associé </th> --}}
          </tr>
        </thead>
        <tbody class="text-light bg-dark table-group-divider">
@@ -22,7 +22,7 @@
            <td>{{$commission->montant}}</td>
            <td>{{$commission->typeProduit}}</td>
            <td>{{$commission->datePaiement}}</td>
-           <td>{{$commission->courtier->nom}} {{$commission->courtier->prenom}}</td>
+           {{-- <td>{{$commission->courtier->nom}} {{$commission->courtier->prenom}}</td> --}}
          </tr>
          @endforeach
       

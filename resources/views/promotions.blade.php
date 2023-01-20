@@ -12,7 +12,7 @@
             <th scope="col">Avantage</th>
             <th scope="col">Date de début </th>
             <th scope="col">Date de fin </th>
-            <th scope="col">Courtier associé </th>
+            {{-- <th scope="col">Courtier associé </th> --}}
           </tr>
         </thead>
         <tbody class="text-light bg-dark table-group-divider">
@@ -24,7 +24,7 @@
            <td>{{$promotion->avantage}}</td>
            <td>{{$promotion->dateDebut}}</td>
            <td>{{$promotion->dateFin}}</td>
-           <td>{{$promotion->courtier->nom}} {{$promotion->courtier->prenom}}</td>
+           {{-- <td>{{$promotion->courtier->nom}} {{$promotion->courtier->prenom}}</td> --}}
          </tr>
          @endforeach
          

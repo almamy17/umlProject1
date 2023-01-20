@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Devis extends Model
 {
     use HasFactory;
+    public function courtier(){
+        return $this->belongsTo(Courtier::class);
+    }
 }

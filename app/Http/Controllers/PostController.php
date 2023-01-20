@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Devis;
+use App\Models\Contrat;
+use App\Models\Sinistre;
 use App\Models\Promotion;
 use App\Models\Commission;
+use Illuminate\Http\Request;
+
 
 class PostController extends Controller{
 
@@ -33,13 +38,32 @@ class PostController extends Controller{
         return view('login');
     }
     public function afficherContrat(){
-        return view('contrat');
+        $contrats=Contrat::get();
+        return view('contrat',compact("contrats"));
     }
+    public function afficherFormContrat(){
+        return view('contratForm');
+    }
+    public function storeContrat(Request $request){
+        Contrat::create([
+            "renouvelable"=>$request->renouvelable,
+            "etat"=>$request->etat,
+            "options"=>$request->options,
+            "couverture"=>$request->couverture,
+            "dateDebut"=>$request->dateDebut,
+            "dateFin"=>$request->dateFin,
+            "courtier_id"=>(int)$request->courtier_id,
+        ]);
+        return back()->with('success','Contrat créé avec succès');
+    }
+
     public function afficherSinistre(){
-        return view('sinistre');
+        $sinistres=Sinistre::get();
+        return view('sinistre',compact('sinistres'));
     }
     public function afficherDevis(){
-        return view('devis');
+        $devis=Devis::get();
+        return view('devis',compact("devis"));
     }
 }
 
