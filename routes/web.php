@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PreController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\AuthenticationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,16 @@ Route::get('/contact',[PostController::class,'afficherContact'])->name('contact'
 Route::get('/commissions',[PostController::class,'afficherCommissions'])->name('commissions');
 Route::get('/promotions',[PostController::class,'afficherPromotions'])->name('promotions');
 Route::get('/activites',[PostController::class,'afficherActivites'])->name('activites');
-Route::get('/login',[PostController::class,'afficherConnexion'])->name('login');
+
+// Definition de la route permettant de se connecter
+Route::get('/login',[AuthenticationController::class,'afficherConnexion'])->name('login');
+
+// Définition de la route permettant d'authentifier l'utilisateut avec ses informations
+Route::post('/authenticate',[AuthenticationController::class,'connectUser'])->name('authenticate');
+
+// La route de déconnexion
+Route::get('/logout',[AuthenticationController::class,'disconnectUser'])->name('logout');
+
 Route::get('/activites/contrat',[PostController::class,'afficherContrat'])->name('contrat');
 Route::get('/activites/devis',[PostController::class,'afficherDevis'])->name('devis');
 Route::get('/activites/sinistre',[PostController::class,'afficherSinistre'])->name('sinistre');

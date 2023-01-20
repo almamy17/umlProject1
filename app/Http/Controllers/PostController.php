@@ -29,9 +29,7 @@ class PostController extends Controller{
         $promotions=Promotion::get();
         return view('promotions',compact("promotions"));
     }
-    public function afficherConnexion(){
-        return view('login');
-    }
+
     public function afficherContrat(){
         return view('contrat');
     }

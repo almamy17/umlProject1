@@ -86,17 +86,18 @@
   <body class=" d-flex  h-100 text-center text-bg-dark">
     
 <main class="form-signin w-100 m-auto">
-  <form>
+  <form action="{{ route('authenticate') }}" method="post">
+    @csrf
     {{-- <img class="mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> --}}
     <h1 class='mb-0 fw-bold'>AssureTout</h1>
     <h2 class="h4 mb-3 fw-normal">Connexion - extranet</h2>
 
     <div class="form-floating ">
-      <input type="email" class="form-control text-bg-dark" id="floatingInput" placeholder="konan@assuretout.com" required>
+      <input type="email" name="email" class="form-control text-bg-dark" id="floatingInput" placeholder="konan@assuretout.com" required>
       <label for="floatingInput">Adresse courriel</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control text-bg-dark" id="floatingPassword" placeholder="Mot de passe" required>
+      <input type="password" name="password" class="form-control text-bg-dark" id="floatingPassword" placeholder="Mot de passe" required>
       <label for="floatingPassword">Mot de passe</label>
     </div>
 
