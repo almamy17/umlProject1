@@ -84,8 +84,10 @@
     <link href={{asset('css/sign-in.css')}} rel="stylesheet">
   </head>
   <body class=" d-flex  h-100 text-center text-bg-dark">
-    
 <main class="form-signin w-100 m-auto">
+    @foreach ($errors->all() as $item ) 
+          <p class="alert alert-danger"> {{ $item }}</p>
+    @endforeach
   <form action="{{ route('authenticate') }}" method="post">
     @csrf
     {{-- <img class="mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> --}}

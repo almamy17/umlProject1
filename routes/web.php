@@ -18,9 +18,19 @@ use App\Http\Controllers\AuthenticationController;
 Route::get('/accueil',[PostController::class,'afficherAccueil'] )->name('home');
 Route::get('/about', [PostController::class,'afficherAbout'])->name('about');
 Route::get('/contact',[PostController::class,'afficherContact'])->name('contact');
-Route::get('/commissions',[PostController::class,'afficherCommissions'])->name('commissions');
-Route::get('/promotions',[PostController::class,'afficherPromotions'])->name('promotions');
-Route::get('/activites',[PostController::class,'afficherActivites'])->name('activites');
+
+Route::get('/commissions',[PostController::class,'afficherCommissions'])
+    ->name('commissions');
+    //->middleware('auth');
+
+
+Route::get('/promotions',[PostController::class,'afficherPromotions'])
+    ->name('promotions');
+    //-middleware('auth');
+
+Route::get('/activites',[PostController::class,'afficherActivites'])
+    ->name('activites');
+    //->middleware('auth');
 
 // Definition de la route permettant de se connecter
 Route::get('/login',[AuthenticationController::class,'afficherConnexion'])->name('login');
@@ -31,6 +41,14 @@ Route::post('/authenticate',[AuthenticationController::class,'connectUser'])->na
 // La route de déconnexion
 Route::get('/logout',[AuthenticationController::class,'disconnectUser'])->name('logout');
 
-Route::get('/activites/contrat',[PostController::class,'afficherContrat'])->name('contrat');
-Route::get('/activites/devis',[PostController::class,'afficherDevis'])->name('devis');
-Route::get('/activites/sinistre',[PostController::class,'afficherSinistre'])->name('sinistre');
+Route::get('/activites/contrat',[PostController::class,'afficherContrat'])
+    ->name('contrat');
+    //->middleware('auth');
+
+Route::get('/activites/devis',[PostController::class,'afficherDevis'])
+    ->name('devis');
+    //->middleware('auth');
+
+Route::get('/activites/sinistre',[PostController::class,'afficherSinistre'])
+    ->name('sinistre');
+    //->middleware('auth');
