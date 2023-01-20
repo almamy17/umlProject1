@@ -130,17 +130,21 @@
                     @endif
                 </nav>
                 <div class="dropdown float-md-end">
-                    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                      <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-                      <strong>{{ auth()->user()->name }}</strong>
-                    </a>
+                        @auth
+                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                            <strong>{{ auth()->user()->name }}</strong>
+                        </a>
+                        @endauth
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
                       <li><a class="dropdown-item" href="#">Profile</a></li>
                       <li><hr class="dropdown-divider"></li>
-                      <li>
+                        @auth
+                        <li>
                         <a class="dropdown-item" href="#" onclick="document.getElementById('deconnexion').submit()">
                             <form action={{ route('logout') }} id="deconnexion" method="post">@csrf</form>
                         Déconnexion</a></li>
+                        @endauth
                     </ul>
                   </div>
             </div>

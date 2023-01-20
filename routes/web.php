@@ -39,7 +39,7 @@ Route::get('/login',[AuthenticationController::class,'afficherConnexion'])->name
 Route::post('/authenticate',[AuthenticationController::class,'connectUser'])->name('authenticate');
 
 // La route de déconnexion
-Route::get('/logout',[AuthenticationController::class,'disconnectUser'])->name('logout');
+Route::post('/logout',[AuthenticationController::class,'disconnectUser'])->name('logout');
 
 Route::get('/activites/contrat',[PostController::class,'afficherContrat'])
     ->name('contrat');
